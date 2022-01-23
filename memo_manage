@@ -1,0 +1,50 @@
+【Install】
+pip install Django
+
+【make project】
+・django-admin startproject {sitename} {save_dir}
+  Make new django project.
+  These files are made by after running command. 
+  
+  save_dir(project root)
+  ├── manage.py          :Useful tool for administration. You can use it as command-like.
+  ├── sitename
+      ├── __init__.py    :It isn't important. You might need it if you want to packagenize this project.
+      ├── settings.py    :Settings about this project.
+      ├── urls.py
+      ├── wsgi.py
+      └── asgi.py
+  
+  
+・python manage.py migrate
+  Create database. This command refer from settings.DATABASES param.
+  Default database is sqlite3 and default db filename is db.sqlite3.
+  Not only made tables but also insert something records.
+  
+【run server】
+・python manage.py runserver
+  run server.
+  
+【make app】
+・python manage.py startapp {appname}
+save_dir(project root)
+└── blog
+     ├── admin.py
+     ├── apps.py
+     ├── __init__.py
+     ├── migrations
+     │   └── __init__.py
+     ├── models.py
+     ├── tests.py
+     └── views.py
+     
+・How to add new models.
+  1) Define new model class into models.py which in app.
+  2) Define migrations class for create tables.
+     Do below command.
+       python manage.py makemigrations {appname}
+  3) Create new table in sqlite3 with new model.
+     python manage.py migrate blog
+     
+・create superuser
+  python manage.py createsuperuser

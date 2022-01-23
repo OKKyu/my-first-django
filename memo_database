@@ -1,0 +1,16 @@
+【master tables】
+ auth_user          :user master.
+ auth_group         :group master. There are only id and name columns.
+ auth_permission    :permission master. this master is associated with users and groups.
+ django_content_type:labeling information for app and model.
+ 
+【transaction tables】
+ auth_user_user_permissions :Privileges for each users.
+ auth_user_groups           :Information about which group each users belong.
+ auth_group_permissions     :Privileges that granted for each groups. user_id + group_id
+ django_migrations          :History of migration.
+ django_admin_log           :Administrator's operation history.
+                             action_flag:maybe 1:insert 2:update 3:delete
+                             user_id:The user who create or update.
+ django_session             :Session key, data, and expiration.
+ sqlite_sequence            :Sequence list that each tables.
